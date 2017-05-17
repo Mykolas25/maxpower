@@ -15,12 +15,10 @@ class CheckAge
      */
     public function handle($request, Closure $next)
     {
-
-        if(auth()->user()->age < 18)
-        {
+        if (auth()->user()->age > 21) {
             return $next($request);
+        } else {
+            abort(403);
         }
-        return $next($request);
     }
-
 }

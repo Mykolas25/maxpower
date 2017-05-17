@@ -19,7 +19,8 @@ Auth::routes();
 //
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'MainDisplayController@show');
+Route::get('/home', ['middleware' => ['auth', 'age'], 'uses' => 'MainDisplayController@show']);
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
 //
